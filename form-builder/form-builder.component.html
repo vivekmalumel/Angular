@@ -1,0 +1,29 @@
+<div class="container">
+<form [formGroup]="form">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" class="form-control" formControlName="name">
+      <div class="alert alert-danger" *ngIf="name.touched && name.invalid">
+          <div *ngIf="name.errors.required">Name  is required</div>
+          <div *ngIf="name.errors.cannotContainSpace">Space is Not Allowed</div>
+      </div>
+    </div>
+    <div formGroupName="contact">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" class="form-control" formControlName="email">
+            <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+              <div *ngIf="email.errors.required">Email is required</div>
+              <div *ngIf="email.errors.email">Invalid Email Format</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="phno">Phone Number</label>
+            <input type="number" id="phno" class="form-control" formControlName="phno">
+            <div class="alert alert-danger" *ngIf="phno.touched && phno.invalid">Phone Number is required</div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">OK</button>
+
+</form>
+</div>
